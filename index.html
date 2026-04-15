@@ -203,10 +203,21 @@ body {
 }
 .hero-bg {
   position: absolute;
-  inset: 0;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
   background-size: cover;
   background-position: center top;
   filter: brightness(0.7);
+  animation: heroKenBurns 18s ease-out forwards;
+}
+@keyframes heroKenBurns {
+  0% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+@keyframes heroTextIn {
+  0% { opacity: 0; transform: translateX(-50%) translateY(24px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 .hero-bottom {
   position: absolute;
@@ -215,6 +226,7 @@ body {
   transform: translateX(-50%);
   z-index: 2;
   text-align: center;
+  animation: heroTextIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
   max-width: 680px;
   padding: 0 24px;
   width: 100%;
@@ -226,6 +238,7 @@ body {
   transform: translateX(-50%);
   z-index: 2;
   text-align: center;
+  animation: heroTextIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
   width: 100%;
   padding: 0 24px;
 }
@@ -467,7 +480,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--sand);
   margin-bottom: 18px;
 }
 .about-strip p {
@@ -520,7 +533,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--sand);
   margin-bottom: 16px;
 }
 .science-text h2 {
@@ -975,9 +988,9 @@ footer {
 .cart-empty h4 { font-size: 18px; font-weight: 300; color: var(--black); margin-bottom: 8px; }
 .cart-empty p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
 .cart-empty a { display: inline-block; padding: 14px 36px; background: var(--black); color: var(--white); font-family: var(--font); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 40px; transition: all 0.3s; }
-.cart-empty a:hover { background: var(--sage); }
+.cart-empty a:hover { background: var(--stone); }
 .cart-shipping-bar { padding: 16px 28px; background: var(--off-white); border-top: 1px solid var(--border); text-align: center; font-size: 12px; font-weight: 300; color: var(--muted); }
-.cart-shipping-bar strong { color: var(--sage); font-weight: 500; }
+.cart-shipping-bar strong { color: var(--sand); font-weight: 500; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {

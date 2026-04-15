@@ -122,7 +122,7 @@ body { font-family: var(--font); color: var(--black); background: var(--white); 
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--sand);
   margin-bottom: 8px;
 }
 .contact-right h3 {
@@ -170,7 +170,7 @@ body { font-family: var(--font); color: var(--black); background: var(--white); 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-bottom-color: var(--sage);
+  border-bottom-color: var(--stone);
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
@@ -207,9 +207,9 @@ body { font-family: var(--font); color: var(--black); background: var(--white); 
   margin-top: 8px;
 }
 .form-submit:hover {
-  background: var(--sage);
+  background: var(--stone);
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(107,125,94,0.25);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
 }
 
 /* FOOTER */
@@ -270,7 +270,7 @@ footer {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--white);
   cursor: pointer;
   padding: 10px 0 10px 12px;
   transition: color 0.3s;
@@ -300,9 +300,9 @@ footer {
 .cart-empty h4 { font-size: 18px; font-weight: 300; color: var(--black); margin-bottom: 8px; }
 .cart-empty p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
 .cart-empty a { display: inline-block; padding: 14px 36px; background: var(--black); color: var(--white); font-family: var(--font); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 40px; transition: all 0.3s; }
-.cart-empty a:hover { background: var(--sage); }
+.cart-empty a:hover { background: var(--stone); }
 .cart-shipping-bar { padding: 16px 28px; background: var(--off-white); border-top: 1px solid var(--border); text-align: center; font-size: 12px; font-weight: 300; color: var(--muted); }
-.cart-shipping-bar strong { color: var(--sage); font-weight: 500; }
+.cart-shipping-bar strong { color: var(--stone); font-weight: 500; }
 
 /* ANIMATIONS */
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -390,7 +390,7 @@ footer {
     <h3 class="fade-in d1">Send Us A Message</h3>
     <p class="form-sub fade-in d2">Fill out the form below and a member of our team will respond within one business day.</p>
 
-    <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.form-submit').textContent='Message Sent'; this.querySelector('.form-submit').style.background='var(--sage)';">
+    <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.form-submit').textContent='Message Sent'; this.querySelector('.form-submit').style.background='var(--stone)';">
 
       <div class="form-row fade-in d3">
         <div class="form-group">

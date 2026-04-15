@@ -76,7 +76,7 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--sand);
   margin-bottom: 24px;
 }
 .sa-hero-content h1 {
@@ -90,7 +90,7 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
 .sa-hero-content h1 em {
   font-style: italic;
   font-weight: 200;
-  color: var(--sage);
+  color: var(--white);
 }
 .sa-hero-content p {
   font-size: 15px;
@@ -119,10 +119,10 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
   width: fit-content;
 }
 .sa-start-btn:hover {
-  background: var(--sage);
+  background: var(--stone);
   color: var(--white);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(107,125,94,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
 }
 .sa-start-btn svg { width: 16px; height: 16px; transition: transform 0.3s; }
 .sa-start-btn:hover svg { transform: translateX(4px); }
@@ -152,8 +152,8 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
   width: fit-content;
 }
 .sa-cam-btn:hover {
-  border-color: var(--sage);
-  color: var(--sage);
+  border-color: var(--white);
+  color: var(--white);
   transform: translateY(-2px);
 }
 .sa-cam-btn svg { width: 16px; height: 16px; }
@@ -322,7 +322,7 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
 }
 .quiz-progress-bar {
   height: 100%;
-  background: var(--sage);
+  background: var(--stone);
   transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   width: 0%;
 }
@@ -355,7 +355,7 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--sand);
   margin-bottom: 16px;
 }
 .quiz-step h2 {
@@ -395,8 +395,8 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
   box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 .quiz-opt.selected {
-  border-color: var(--sage);
-  background: rgba(107,125,94,0.04);
+  border-color: var(--black);
+  background: rgba(0,0,0,0.04);
 }
 .quiz-opt.selected::after {
   content: '✓';
@@ -404,7 +404,7 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
   top: 12px;
   right: 14px;
   font-size: 14px;
-  color: var(--sage);
+  color: var(--black);
   font-weight: 500;
 }
 .quiz-opt-title {
@@ -462,9 +462,9 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
   pointer-events: all;
 }
 .quiz-next.enabled:hover {
-  background: var(--sage);
+  background: var(--stone);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(107,125,94,0.25);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 /* ===== RESULTS ===== */
@@ -492,7 +492,7 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
 .result-score-num {
   font-size: 32px;
   font-weight: 200;
-  color: var(--sage);
+  color: var(--black);
   margin-bottom: 4px;
 }
 .result-score-label {
@@ -508,7 +508,7 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--sand);
   margin-bottom: 16px;
 }
 .result-products {
@@ -529,7 +529,7 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
   transition: all 0.3s;
 }
 .result-product:hover {
-  border-color: var(--sage);
+  border-color: var(--stone);
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
@@ -553,7 +553,7 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
 .result-product-price {
   font-size: 13px;
   font-weight: 400;
-  color: var(--sage);
+  color: var(--black);
   margin-top: 4px;
 }
 
@@ -573,9 +573,9 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .result-cta:hover {
-  background: var(--sage);
+  background: var(--stone);
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(107,125,94,0.25);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
 }
 
 /* SLIDE-OUT CART */
@@ -593,9 +593,9 @@ body { font-family: var(--font); color: var(--black); background: var(--black); 
 .cart-empty h4 { font-size: 18px; font-weight: 300; color: var(--black); margin-bottom: 8px; }
 .cart-empty p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
 .cart-empty a { display: inline-block; padding: 14px 36px; background: var(--black); color: var(--white); font-family: var(--font); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 40px; transition: all 0.3s; }
-.cart-empty a:hover { background: var(--sage); }
+.cart-empty a:hover { background: var(--stone); }
 .cart-shipping-bar { padding: 16px 28px; background: var(--off-white); border-top: 1px solid var(--border); text-align: center; font-size: 12px; font-weight: 300; color: var(--muted); }
-.cart-shipping-bar strong { color: var(--sage); font-weight: 500; }
+.cart-shipping-bar strong { color: var(--stone); font-weight: 500; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -947,7 +947,7 @@ try {
   ctx.font = '13px DM Sans, sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText('Visit on your phone:', 110, 100);
-  ctx.fillStyle = '#6B7D5E';
+  ctx.fillStyle = '#9a958e';
   ctx.font = '11px DM Sans, sans-serif';
   ctx.fillText('dividends.theacare.de', 110, 125);
 }
@@ -1076,15 +1076,15 @@ function computeResults() {
   // Show/emphasize retinol for aging/texture concerns or older ages
   const retinolCard = document.getElementById('retinolCard');
   if (answers.concern === 'aging' || answers.concern === 'texture' || answers.age === '40s' || answers.age === '50s') {
-    retinolCard.style.borderColor = 'var(--sage)';
-    retinolCard.style.background = 'rgba(107,125,94,0.04)';
+    retinolCard.style.borderColor = 'var(--stone)';
+    retinolCard.style.background = 'rgba(0,0,0,0.04)';
   }
 
   // Emphasize sunscreen for high sun exposure
   const sunscreenCard = document.getElementById('sunscreenCard');
   if (answers.sun === 'high' || answers.sun === 'moderate') {
-    sunscreenCard.style.borderColor = 'var(--sage)';
-    sunscreenCard.style.background = 'rgba(107,125,94,0.04)';
+    sunscreenCard.style.borderColor = 'var(--stone)';
+    sunscreenCard.style.background = 'rgba(0,0,0,0.04)';
   }
 }
 
