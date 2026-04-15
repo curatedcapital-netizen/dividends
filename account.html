@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Account — Dividends</title>
+<meta property="og:title" content="Account — Dividends">
+<meta property="og:description" content="Science-backed skincare for men. Small, daily investments that build real, lasting value.">
+<meta property="og:type" content="website">
+<meta name="description" content="Science-backed skincare for men. Small, daily investments that build real, lasting value.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111111'/%3E%3Ctext x='50' y='68' font-family='DM Sans,sans-serif' font-size='60' font-weight='600' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -18,6 +23,8 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { overflow-x: hidden; }
 body { font-family: var(--font); color: var(--navy); background: var(--white); -webkit-font-smoothing: antialiased; }
+body.page-enter { animation: pageIn 0.5s ease both; }
+@keyframes pageIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 
 /* ANNOUNCEMENT */
 .announcement { position: fixed; top: 0; left: 0; right: 0; z-index: 101; background: var(--navy); padding: 9px 28px; text-align: center; font-size: 11px; font-weight: 400; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -283,8 +290,27 @@ body { font-family: var(--font); color: var(--navy); background: var(--white); -
 .cart-shipping-bar { padding: 16px 28px; background: var(--off-white); border-top: 1px solid var(--border); text-align: center; font-size: 12px; font-weight: 300; color: var(--muted); }
 .cart-shipping-bar strong { color: var(--stone); font-weight: 500; }
 
+/* HAMBURGER & MOBILE MENU */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; z-index: 102; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: rgba(255,255,255,0.7); margin: 5px 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.nav.scrolled .hamburger span { background: var(--black); }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(17,17,17,0.97); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 20px; opacity: 0; transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.mobile-menu.open { display: flex; opacity: 1; }
+.mobile-menu a { font-size: 22px; font-weight: 300; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; letter-spacing: 0.02em; }
+.mobile-menu a:hover { color: var(--white); }
+.scroll-top { position: fixed; bottom: 32px; right: 32px; width: 44px; height: 44px; border-radius: 50%; background: var(--black); border: 1px solid rgba(255,255,255,0.08); color: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transform: translateY(16px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 90; pointer-events: none; }
+.scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+.scroll-top:hover { background: var(--white); color: var(--black); border-color: rgba(0,0,0,0.06); }
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .nav-left, .nav-right { display: none; }
+  .hamburger { display: block; position: absolute; right: 16px; }
+  .nav { display: flex; justify-content: center; }
+  .nav-logo { position: static; }
   .announcement { font-size: 10px; padding: 8px 16px; }
   .nav { padding: 14px 16px; top: 32px; }
   .nav.scrolled { top: 0; }
@@ -296,7 +322,7 @@ body { font-family: var(--font); color: var(--navy); background: var(--white); -
 }
 </style>
 </head>
-<body>
+<body class="page-enter">
 
 <div class="announcement" id="announcementBar">
   Now Available Online at <strong>Nordstrom</strong> &amp; <strong>The 2nd</strong> &mdash; <a href="shop.html">Shop Now</a>
@@ -318,7 +344,18 @@ body { font-family: var(--font); color: var(--navy); background: var(--white); -
     <a href="account.html" class="active">Account</a>
     <a href="#">Cart (0)</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="#">Journal</a>
+  <a href="skin-analysis.html">Skin Analysis</a>
+  <a href="inner-circle.html">The Inner Circle</a>
+  <a href="contact.html">Contact</a>
+  <a href="account.html">Account</a>
+</div>
 
 <section class="acct-layout">
 
@@ -425,6 +462,10 @@ body { font-family: var(--font); color: var(--navy); background: var(--white); -
   </div>
 </div>
 
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
 <script>
 window.scrollTo(0, 0);
 setTimeout(() => { document.documentElement.style.scrollBehavior = 'smooth'; }, 100);
@@ -493,6 +534,26 @@ function closeCart() {
 
 cartClose.addEventListener('click', closeCart);
 cartOverlay.addEventListener('click', closeCart);
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+}
+
+// Scroll to top
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
+});
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
 </body>
 </html>

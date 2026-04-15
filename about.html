@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111111'/%3E%3Ctext x='50' y='68' font-family='DM Sans,sans-serif' font-size='60' font-weight='600' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
 <title>About — Dividends</title>
+<meta property="og:title" content="About — Dividends">
+<meta property="og:description" content="Science-backed skincare for men. Small, daily investments that build real, lasting value.">
+<meta property="og:type" content="website">
+<meta name="description" content="Science-backed skincare for men. Small, daily investments that build real, lasting value.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -17,6 +22,23 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { overflow-x: hidden; }
 body { font-family: var(--font); color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; }
+body.page-enter { animation: pageIn 0.5s ease both; }
+@keyframes pageIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+/* HAMBURGER */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; z-index: 102; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: rgba(255,255,255,0.7); margin: 5px 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.nav.scrolled .hamburger span { background: var(--black); }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(17,17,17,0.97); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 20px; opacity: 0; transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.mobile-menu.open { display: flex; opacity: 1; }
+.mobile-menu a { font-size: 22px; font-weight: 300; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; letter-spacing: 0.02em; }
+.mobile-menu a:hover { color: var(--white); }
+.scroll-top { position: fixed; bottom: 32px; right: 32px; width: 44px; height: 44px; border-radius: 50%; background: var(--black); border: 1px solid rgba(255,255,255,0.08); color: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transform: translateY(16px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 90; pointer-events: none; }
+.scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+.scroll-top:hover { background: var(--white); color: var(--black); border-color: rgba(0,0,0,0.06); }
 
 /* ANNOUNCEMENT */
 .announcement { position: fixed; top: 0; left: 0; right: 0; z-index: 101; background: var(--black); padding: 9px 28px; text-align: center; font-size: 11px; font-weight: 400; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -476,6 +498,10 @@ body { font-family: var(--font); color: var(--black); background: var(--white); 
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .nav-left, .nav-right { display: none; }
+  .hamburger { display: block; position: absolute; right: 16px; }
+  .nav { display: flex; justify-content: center; }
+  .nav-logo { position: static; }
   .announcement { font-size: 10px; padding: 8px 16px; }
   .nav { padding: 14px 16px; top: 32px; }
   .nav.scrolled { top: 0; }
@@ -488,7 +514,7 @@ body { font-family: var(--font); color: var(--black); background: var(--white); 
 }
 </style>
 </head>
-<body>
+<body class="page-enter">
 
 <div class="announcement" id="announcementBar">
   Now Available Online at <strong>Nordstrom</strong> &amp; <strong>The 2nd</strong> &mdash; Free Shipping On All Orders Over $149 &mdash; <a href="shop.html">Shop Now</a>
@@ -510,7 +536,18 @@ body { font-family: var(--font); color: var(--black); background: var(--white); 
     <a href="account.html">Account</a>
     <a href="#">Cart (0)</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="#">Journal</a>
+  <a href="skin-analysis.html">Skin Analysis</a>
+  <a href="inner-circle.html">The Inner Circle</a>
+  <a href="contact.html">Contact</a>
+  <a href="account.html">Account</a>
+</div>
 
 <!-- HERO -->
 <section class="about-hero">
@@ -606,6 +643,10 @@ body { font-family: var(--font); color: var(--black); background: var(--white); 
   </div>
 </section>
 
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
 <!-- SLIDE-OUT CART -->
 <div class="cart-overlay" id="cartOverlay"></div>
 <div class="cart-drawer" id="cartDrawer">
@@ -632,6 +673,7 @@ body { font-family: var(--font); color: var(--black); background: var(--white); 
     <div class="footer-brand">
       <img src="data:image/png;base64,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" alt="Dividends" style="height:32px;opacity:0.8;">
       <p>Investment-grade skincare for the modern man. Formulated to compound results over time.</p>
+      <a href="https://instagram.com/dividendswellness" target="_blank" rel="noopener" style="display: inline-block; margin-top: 12px; color: rgba(255,255,255,0.3); transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.3)'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
     </div>
     <div>
       <h4>Products</h4>
@@ -705,6 +747,25 @@ function closeCart() {
 
 cartClose.addEventListener('click', closeCart);
 cartOverlay.addEventListener('click', closeCart);
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+}
+// Scroll to top
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
+});
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
 </body>
 </html>
